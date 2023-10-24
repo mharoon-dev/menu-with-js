@@ -1,3 +1,11 @@
+let body = document.querySelector('body')
+body.style.height = "100vh"
+body.style.display = "flex"
+body.style.flexDirection = "column"
+body.style.justifyContent = "start"
+body.style.alignItems = "center"
+
+
 let btnsName = [
     "ALL",
     "FAST FOOD",
@@ -5,15 +13,13 @@ let btnsName = [
     "DRINKS"
 ]
 
-
 let btnsContainer = document.querySelector(".btnsContainer")
+
 btnsName.forEach(function (btn) {
     let btns = document.createElement("div")
-
-    btns.innerHTML = `
-    <button id="btn" type="button" class="btn btn-outline-warning">${btn}</button>
-            `
-            btnsContainer.appendChild(btns)
+    btns.style.marginLeft = "0.5rem"
+    btns.innerHTML = `<button id="btn" type="button" class="btn btn-outline-warning">${btn}</button>`
+    btnsContainer.appendChild(btns)
 })
 
 
@@ -55,6 +61,7 @@ let cards = [
         cetagory:"fishes"
     },
 ]
+
 let images = [
     "./images/burger.png",
     "./images/apple juice.png",
@@ -63,7 +70,9 @@ let images = [
     "./images/mango-juice.png",
     "./images/fish.png",
 ]
+
 let imageIndex = -1
+
 
 let cardContainer = document.querySelector('.container-fluid')
 
@@ -76,26 +85,53 @@ cards.forEach( function (menuCard) {
     for (i = 0 ; i < 2 ; i++ ) {
         col =  document.createElement('div')
             col.classList.add('col-md-4')
+            col.classList.add('col-sm-6')
             col.classList.add('mb-3')
-        
     }
     
     div = document.createElement('div')
     div.style.display = "flex"
     div.style.justifyContent = "center"
     div.style.alignItems = "center"
-    div.innerHTML = `
-    <div class="card" style="width: 18rem; border:1px solid lightgrey;  border-radius:15px; box-shadow: box-shadow: 0px 0px 58px -24px rgba(0,0,0,0.65) inset;
+    div.innerHTML = 
+    `<div 
+    class="card" 
+    style="width: 18rem; 
+    border:1px solid lightgrey;  
+    border-radius:15px; box-shadow: box-shadow: 0px 0px 58px -24px rgba(0,0,0,0.65) inset;
     -webkit-box-shadow: 0px 0px 58px -24px rgba(0,0,0,0.65) inset;
-    -moz-box-shadow: 0px 0px 58px -24px rgba(0,0,0,0.65) inset;;">
-                <img class="card1img" style="border-radius:15px;" src="${images[imageIndex]}" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title card1Name" style="color:rgb(252, 163, 9); text-transform:capitalize;">${menuCard.name}</h5>
-                  <h6 class="card-title card1Price" style="font-size:large;">RS : <span style="color:rgb(252, 163, 9);">${menuCard.RS}</span></h6>
-                  <p class="card-text" style="color:black; font-size:medium;"> ${menuCard.text}</p>
-                </div>
-                
-    `
+    -moz-box-shadow: 0px 0px 58px -24px rgba(0,0,0,0.65) inset;">
+
+    <img 
+    class="card1img" 
+    style="border-radius:15px;" 
+    src="${images[imageIndex]}" 
+    class="card-img-top">
+
+    <div 
+    class="card-body">
+
+    <h5 
+    class="card-titleard1Name" 
+    style="color:rgb(252, 163, 9); 
+    text-transform:capitalize;">
+    ${menuCard.name}</h5>
+
+    <h6 class="card-title 
+    card1Price" 
+    style="font-size:large;">
+    RS : 
+    <span 
+    style="color:rgb(252, 163, 9);">
+    ${menuCard.RS}</span></h6>
+
+    <p 
+    class="card-text" 
+    style="color:black; 
+    font-size:medium;"> 
+    ${menuCard.text}</p>
+
+    </div>`
 
     col.appendChild(div)
     row.appendChild(col)
